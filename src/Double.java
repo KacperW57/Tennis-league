@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Double extends League {
@@ -64,6 +65,7 @@ public class Double extends League {
         }
       }
     }
+    Collections.shuffle(matches);
   }
 
   public void getDoubleMatches() {
