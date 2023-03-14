@@ -47,11 +47,13 @@ public class App {
         case 2:
           for (int i = 0; i < individualLeagues.size(); i++) {
             individualLeagues.get(i).getPlayers();
+            individualLeagues.get(i).getMatches();
           }
           break;
         case 3:
           for (int i = 0; i < doubleLeagues.size(); i++) {
             doubleLeagues.get(i).getTeams();
+            doubleLeagues.get(i).getDoubleMatches();
           }
 
           break;

@@ -5,6 +5,7 @@ public class Double extends League {
 
   private String type;
   private ArrayList<Team> teams = new ArrayList<Team>();
+  private ArrayList<MatchDouble> matches = new ArrayList<MatchDouble>();
   private static int teamNum = 0;
   private static int amountOfTeams;
 
@@ -35,6 +36,7 @@ public class Double extends League {
         teams.get(j).getName()
       );
     }
+    makeDoubleMatches();
   }
 
   public void getTeams() {
@@ -48,6 +50,29 @@ public class Double extends League {
         teams.get(j).getID(),
         teams.get(j).getName()
       );
+    }
+  }
+
+  public void makeDoubleMatches() {
+    for (int i = 0; i < teams.size(); i++) {
+      for (int j = 1; j < teams.size(); j++) {
+        if (teams.get(i).getName() != teams.get(j).getName()) {
+          MatchDouble newMatch = new MatchDouble(teams.get(i), teams.get(j));
+          matches.add(newMatch);
+        } else {
+          break;
+        }
+      }
+    }
+  }
+
+  public void getDoubleMatches() {
+    System.out.printf(
+      "\nList of all matches in the %s league: ",
+      this.getLeagueName()
+    );
+    for (int i = 0; i < matches.size(); i++) {
+      matches.get(i).getMatchDouble();
     }
   }
 }
