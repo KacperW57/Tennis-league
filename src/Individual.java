@@ -5,6 +5,7 @@ public class Individual extends League {
 
   private String type;
   private ArrayList<Player> players = new ArrayList<Player>();
+  private ArrayList<Match> matches = new ArrayList<Match>();
   private static int playerNum = 0;
   private static int amountOfPlayers;
 
@@ -35,6 +36,7 @@ public class Individual extends League {
         players.get(j).getName()
       );
     }
+    makeMatches();
   }
 
   public void getPlayers() {
@@ -48,6 +50,29 @@ public class Individual extends League {
         players.get(j).getID(),
         players.get(j).getName()
       );
+    }
+  }
+
+  public void makeMatches() {
+    for (int i = 0; i < players.size(); i++) {
+      for (int j = 1; j < players.size(); j++) {
+        if (players.get(i).getName() != players.get(j).getName()) {
+          Match newMatch = new Match(players.get(i), players.get(j));
+          matches.add(newMatch);
+        } else {
+          break;
+        }
+      }
+    }
+  }
+
+  public void getMatches() {
+    System.out.printf(
+      "\nList of all matches in the %s league: ",
+      this.getLeagueName()
+    );
+    for (int i = 0; i < matches.size(); i++) {
+      matches.get(i).getMatch();
     }
   }
 }
